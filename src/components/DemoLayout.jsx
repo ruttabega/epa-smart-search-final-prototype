@@ -6,7 +6,10 @@ const { Header, Content, Footer } = Layout;
 export default function DemoLayout(props) {
     let navigate = useNavigate();
     return (
-        <Layout className='layout'>
+        <Layout
+            className='layout'
+            style={{ height: '100vh', minHeight: '100vh', maxHeight: '100vh' }}
+        >
             {props.page === 'Landing' ? (
                 <PageHeader
                     className='site-page-header'
