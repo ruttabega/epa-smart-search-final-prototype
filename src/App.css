@@ -1,38 +1,450 @@
-.App {
-  text-align: center;
+@import '~antd/dist/antd.css';
+
+.site-layout-content {
+    min-height: 280px;
+    padding: 24px;
+    background: #fff;
+}
+#components-layout-demo-top .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #components-layout-demo-top .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.advanced-card {
+    width: 250px;
+    border-radius: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.advanced-card > .ant-card-head {
+    font-size: 13px;
+    min-height: 45px;
+    max-height: 45px;
+    text-align: center;
+    background-color: #f1f2f5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.advanced-card > .ant-card-body {
+    font-size: 13px;
+    padding-left: 15px;
+    padding-top: 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.advanced-card
+    > .ant-card-head
+    > .ant-card-head-wrapper
+    > .ant-card-head-title {
+    padding-top: 12px;
+    font-weight: 600;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.advanced-section {
+    padding-top: 20px;
+}
+
+.advanced-section-header {
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+.advanced-section-content > .ant-checkbox-wrapper {
+    font-size: 12px;
+}
+
+.advanced-section-content > .ant-select {
+    font-size: 12px;
+}
+
+#collapsed.bookmark-card {
+    width: 180px;
+    border-radius: 3px;
+    padding: 0px;
+}
+
+.bookmark-collapse-button {
+    width: 250px;
+    height: 40px;
+}
+
+.bookmark-card > .ant-card-head {
+    font-size: 13px;
+    min-height: 45px;
+    max-height: 45px;
+    text-align: center;
+    background-color: #f1f2f5;
+}
+
+.bookmark-card > .ant-card-body {
+    font-size: 13px;
+    padding-left: 15px;
+    padding-top: 0px;
+}
+#collapsed.bookmark-card > .ant-card-body {
+    font-size: 13px;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+
+.bookmark-card
+    > .ant-card-head
+    > .ant-card-head-wrapper
+    > .ant-card-head-title {
+    padding-top: 12px;
+    font-weight: 600;
+}
+
+.bookmark-section {
+    padding-top: 20px;
+}
+
+.bookmark-section-header {
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+.bookmark-section-content > .ant-checkbox-wrapper {
+    font-size: 12px;
+}
+
+.bookmark-section-content > .ant-select {
+    font-size: 12px;
+}
+
+.search-input {
+    width: 1118px;
+    border-radius: 3px;
+    height: 45px;
+}
+
+.search-button {
+    border-radius: 3px;
+    height: 45px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.search-fields {
+    padding-top: 15px;
+    display: inline-flex;
+    padding-left: 5px;
+}
+
+.search-fields p {
+    font-size: 12px;
+    font-weight: 600;
+    padding-right: 20px;
+}
+
+.search-field-button-unselected {
+    margin-right: 10px;
+    font-size: 12px;
+    top: -2px;
+}
+.search-field-button-unselected:focus {
+    margin-right: 10px;
+    font-size: 12px;
+    color: black;
+    background: white;
+    border-color: #d9d9d9;
+    top: -2px;
+}
+.search-field-button-unselected:hover {
+    margin-right: 10px;
+    font-size: 12px;
+    background: rgb(56, 81, 163);
+    border-color: rgb(56, 81, 163);
+    color: white;
+    top: -2px;
+}
+.search-field-button-selected {
+    margin-right: 10px;
+    font-size: 12px;
+    background: rgb(56, 81, 163);
+    border-color: rgb(56, 81, 163);
+    color: white;
+    top: -2px;
+}
+.search-field-button-selected:focus {
+    margin-right: 10px;
+    font-size: 12px;
+    background: rgb(56, 81, 163);
+    border-color: rgb(56, 81, 163);
+    color: white;
+    top: -2px;
+}
+.search-field-button-selected:hover {
+    margin-right: 10px;
+    font-size: 12px;
+    color: black;
+    background: white;
+    border-color: #d9d9d9;
+    top: -2px;
+}
+
+.search-results {
+    border: 1px solid #c5cacd;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    width: 1200px;
+    margin-top: 20px;
+    padding: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 650px;
+}
+
+.bookmark-results {
+    border: 1px solid #c5cacd;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    width: 1200px;
+    margin-top: 0px;
+    padding: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 650px;
+}
+
+.no-results {
+    border: 1px solid #c5cacd;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    width: 1200px;
+    margin-top: 20px;
+    padding: 15px;
+    height: 50;
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 600px;
+}
+
+.result-card {
+    max-width: 1150px;
+    background: #fbfbfc;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    max-height: 245px;
+}
+
+.result-card-name {
+    font-size: 16px;
+    font-weight: 700;
+    float: left;
+    text-decoration: underline;
+    color: #434048;
+}
+
+.result-card-name:hover {
+    font-size: 16px;
+    font-weight: 700;
+    float: left;
+    text-decoration: underline;
+    color: #1c549d;
+}
+
+.bookmark {
+    position: relative;
+    left: 970px;
+    font-size: 18px;
+    top: -8px;
+}
+
+.collapse-button {
+    position: relative;
+    left: 976px;
+    top: -8px;
+}
+
+.result-card-description-closed {
+    font-size: 12px;
+    max-width: 950px;
+}
+
+.result-card-description-open {
+    font-size: 12px;
+    max-width: 650px;
+}
+
+.environmentalTopicArea,
+.environmentalTopicArea:hover,
+.environmentalTopicArea:focus {
+    margin-right: 5px;
+    font-size: 12px;
+    background: rgb(25, 130, 57);
+    border-color: rgb(25, 130, 57);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+}
+
+.platform,
+.platform:hover,
+.platform:focus {
+    margin-right: 5px;
+    font-size: 12px;
+    background: rgb(187, 83, 9);
+    border-color: rgb(187, 83, 9);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+}
+
+.scientificApplicationType,
+.scientificApplicationType:hover,
+.scientificApplicationType:focus {
+    margin-right: 5px;
+    font-size: 12px;
+    background: rgb(23, 110, 168);
+    border-color: rgb(23, 110, 168);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+}
+
+.tag-table-table {
+    height: 150px;
+    width: 350px;
+    font-size: 11px;
+    border-collapse: separate;
+    border-spacing: 0px;
+    border-radius: 6px;
+    padding: 5px;
+    padding-bottom: 10px;
+    background: #f1f2f5;
+    /* border-spacing: 5px; */
+    border: 1px solid #f1f2f5;
+    /* box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15); */
+    /* border-radius: 5px; */
+    position: relative;
+    left: -10px;
+    top: -32px;
+}
+
+.tag-table {
+    border-radius: 6px;
+}
+
+.tag-table-row {
+    height: 35px;
+    border-radius: 6px;
+}
+
+.tag-table-head {
+    text-align: right;
+    font-weight: 600;
+    color: rgb(62, 62, 62);
+    width: 120px;
+    padding-left: 8px;
+    line-height: 12px;
+    padding-right: 8px;
+}
+
+.tag-table-data {
+    padding-left: 20px;
+    font-size: 10px;
+    font-weight: 400;
+    color: gray;
+}
+
+.tag-table-environmentalTopicArea,
+.tag-table-environmentalTopicArea:hover,
+.tag-table-environmentalTopicArea:focus {
+    margin-right: 5px;
+    font-size: 10px;
+    height: 20px;
+    background: rgb(25, 130, 57);
+    border-color: rgb(25, 130, 57);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+}
+
+.tag-table-platform,
+.tag-table-platform:hover,
+.tag-table-platform:focus {
+    margin-right: 5px;
+    font-size: 10px;
+    height: 20px;
+    background: rgb(187, 83, 9);
+    border-color: rgb(187, 83, 9);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+}
+
+.tag-table-scientificApplicationType,
+.tag-table-scientificApplicationType:hover,
+.tag-table-scientificApplicationType:focus {
+    margin-right: 5px;
+    font-size: 10px;
+    height: 20px;
+    background: rgb(23, 110, 168);
+    border-color: rgb(23, 110, 168);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+}
+
+.result-card-disclaimer {
+    font-size: 11px;
+    font-style: italic;
+    color: gray;
+}
+
+.tech-support {
+    height: 40px;
+    position: relative;
+    top: 23px;
+    width: 600px;
+    font-size: 11px;
+    border-spacing: 0px;
+    border-radius: 6px;
+    border: 1px solid #c9c6d0;
+    display: flex;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+.tech-support-row {
+    border: none;
+}
+
+.tech-support-label {
+    font-weight: 600;
+    padding-right: 25px;
+    padding-left: 5px;
+    color: #434048;
+}
+.tech-support-data-item {
+    padding-right: 25px;
+    border-left: solid 0.5px #8b8794;
+    padding-left: 25px;
+    color: #524f5a;
+}
+
+.landing-content {
+    padding: 20px;
+}
+
+.demo-heading {
+    font-weight: 600;
+    padding-bottom: 30px;
+}
+
+.demo-description {
+    padding-bottom: 20px;
+}
+
+.demo-start-text {
+    font-weight: 500;
+    margin-bottom: 550px;
 }

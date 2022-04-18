@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Landing from './pages/Landing';
+import Demo from './pages/Demo';
+import Scenario1 from './pages/Scenario1';
+import Scenario2 from './pages/Scenario2';
+import Survey from './pages/Survey';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Landing />} />
+                <Route path='demo' element={<Demo />} />
+                <Route path='scenario-1' element={<Scenario1 />} />
+                <Route path='scenario-2' element={<Scenario2 />} />
+                <Route path='survey' element={<Survey />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
