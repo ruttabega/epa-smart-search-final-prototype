@@ -10,14 +10,14 @@ import './App.css';
 function App() {
     return (
         <>
-            <head>
+            {/* <head>
                 <Helmet>
                     <meta
                         name='viewport'
                         content='initial-scale=0.9, user-scalable=no'
                     />
                 </Helmet>
-            </head>
+            </head> */}
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<Landing />} />

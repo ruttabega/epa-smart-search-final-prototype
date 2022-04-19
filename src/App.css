@@ -1,5 +1,9 @@
 @import '~antd/dist/antd.css';
 
+html {
+    zoom: 90%;
+}
+
 .site-layout-content {
     min-height: 280px;
     padding: 24px;
