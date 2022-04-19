@@ -236,7 +236,8 @@ html {
     background: #fbfbfc;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     border-radius: 3px;
-    max-height: 245px;
+    max-height: 255px;
+    margin-bottom: 10px;
 }
 
 .result-card-name {
@@ -257,14 +258,14 @@ html {
 
 .bookmark {
     position: relative;
-    left: 970px;
+    left: 40px;
     font-size: 18px;
     top: -8px;
 }
 
 .collapse-button {
     position: relative;
-    left: 976px;
+    left: 40px;
     top: -8px;
 }
 
@@ -357,6 +358,9 @@ html {
     font-size: 10px;
     font-weight: 400;
     color: gray;
+    min-height: 35px;
+    max-height: 50px;
+    padding-top: 8px;
 }
 
 .tag-table-environmentalTopicArea,
@@ -370,6 +374,7 @@ html {
     color: white;
     top: -2px;
     border-radius: 3px;
+    margin-bottom: 2px;
 }
 
 .tag-table-platform,
@@ -383,6 +388,7 @@ html {
     color: white;
     top: -2px;
     border-radius: 3px;
+    margin-bottom: 2px;
 }
 
 .tag-table-scientificApplicationType,
@@ -396,6 +402,35 @@ html {
     color: white;
     top: -2px;
     border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.tag-table-primaryAudience,
+.tag-table-primaryAudience:hover,
+.tag-table-primaryAudience:focus {
+    margin-right: 5px;
+    font-size: 10px;
+    height: 20px;
+    background: rgb(183, 12, 12);
+    border-color: rgb(183, 12, 12);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.tag-table-secondaryAudience,
+.tag-table-secondaryAudience:hover,
+.tag-table-secondaryAudience:focus {
+    margin-right: 5px;
+    font-size: 10px;
+    height: 20px;
+    background: rgb(83, 23, 168);
+    border-color: rgb(83, 23, 168);
+    color: white;
+    top: -2px;
+    border-radius: 3px;
+    margin-bottom: 2px;
 }
 
 .result-card-disclaimer {
@@ -406,8 +441,9 @@ html {
 
 .tech-support {
     height: 40px;
-    position: relative;
-    top: 23px;
+    /* position: relative;
+    top: 23px; */
+    margin-top: 20px;
     width: 600px;
     font-size: 11px;
     border-spacing: 0px;
@@ -451,4 +487,8 @@ html {
 .demo-start-text {
     font-weight: 500;
     margin-bottom: 550px;
+}
+
+.closed-tags {
+    overflow: scroll;
 }

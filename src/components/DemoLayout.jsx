@@ -43,12 +43,11 @@ export default function DemoLayout(props) {
                     </Tooltip>
                 ) : props.page === 'Scenario 2' ? (
                     <Tooltip title='Complete Demo Survey'>
-                        <Button
-                            icon={<ArrowRightOutlined />}
-                            onClick={() => navigate('/survey')}
-                        >
-                            Survey
-                        </Button>
+                        <a href='https://docs.google.com/forms/d/e/1FAIpQLSegpHjNkQe5_B463zkAS6e1G4Q2IyGwgn1lA2kMb_KfS2Jf8w/viewform?usp=sf_link'>
+                            <Button icon={<ArrowRightOutlined />}>
+                                Survey
+                            </Button>
+                        </a>
                     </Tooltip>
                 ) : (
                     <Tooltip title='Return to Demo Homepage and start over'>

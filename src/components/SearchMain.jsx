@@ -12,7 +12,10 @@ export default function SearchMain({
     results,
     setResults,
     bookmarks,
-    setBookmarks
+    setBookmarks,
+    doSearch,
+    selectedMatchOption,
+    setSelectedMatchOption
 }) {
     const handleSearchFieldChange = field => {
         if (field === 'name') {
@@ -47,28 +50,17 @@ export default function SearchMain({
         setSearchValue(e.target.value);
     };
 
-    const doSearch = () => {
-        setResults(
-            searchData.filter(result => {
-                return result.name
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase());
-            })
-        );
-    };
     const matchOptions = [
         { value: 'Match any terms' },
         { value: 'Match all terms' }
     ];
-    const onMatchOptionsChange = value => {
-        console.log(value);
-    };
+
     const SearchMatch = () => {
         return (
             <Select
                 bordered={false}
                 defaultValue='Match any terms'
-                onChange={e => onMatchOptionsChange(e)}
+                onChange={e => setSelectedMatchOption(e.target.value)}
                 showArrow
                 options={matchOptions}
             />

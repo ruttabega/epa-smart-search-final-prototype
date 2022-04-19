@@ -22,7 +22,7 @@ const Tag = ({ keyword, location }) => {
 };
 
 const TechSupport = ({ techSupport }) => {
-    return (
+    return techSupport.name !== 'N/A' ? (
         <table className='tech-support'>
             <tbody>
                 <tr className='tech-support-row'>
@@ -39,7 +39,7 @@ const TechSupport = ({ techSupport }) => {
                 </tr>
             </tbody>
         </table>
-    );
+    ) : null;
 };
 
 const TagTable = ({ tags }) => {
@@ -77,8 +77,6 @@ const TagTable = ({ tags }) => {
             tag => tag.type === 'scientificApplicationType'
         )
     };
-    console.log(tags);
-    console.log(data[columns[4].dataIndex]);
 
     return (
         <table className='tag-table-table'>
@@ -87,14 +85,18 @@ const TagTable = ({ tags }) => {
                     <tr className='tag-table-row'>
                         <th className='tag-table-head'>{column.title}</th>
                         <td className='tag-table-data'>
-                            {data[column.dataIndex][0] ? (
-                                <Tag
-                                    keyword={data[column.dataIndex][0]}
-                                    location='tag-table'
-                                />
-                            ) : (
-                                'N/A'
-                            )}
+                            <div>
+                                {data[column.dataIndex][0]
+                                    ? data[column.dataIndex]?.map(tag => {
+                                          return (
+                                              <Tag
+                                                  keyword={tag}
+                                                  location='tag-table'
+                                              />
+                                          );
+                                      })
+                                    : 'N/A'}
+                            </div>
                         </td>
                     </tr>
                 ))}
@@ -104,50 +106,51 @@ const TagTable = ({ tags }) => {
 };
 
 export default function SearchResultCard({ result, bookmarks, setBookmarks }) {
-    console.log(result);
     const [isOpen, setIsOpen] = useState(false);
+
     return isOpen ? (
         <Card className='result-card' key={result.id}>
             <Row>
-                <a href={result.link} className='result-card-name'>
-                    {result.name}
-                </a>
-                <Button
-                    type='text'
-                    icon={
-                        bookmarks.has(result.name) ? (
-                            <BookFilled />
-                        ) : (
-                            <BookOutlined />
-                        )
-                    }
-                    className='bookmark'
-                    onClick={async () => {
-                        console.log(bookmarks);
-                        if (bookmarks.has(result.name)) {
-                            let newBookmarks = new Map(bookmarks);
-                            newBookmarks.delete(result.name);
-                            await setBookmarks(newBookmarks);
-                            console.log('deleted');
-                        } else {
-                            let newBookmarks = new Map(bookmarks);
-                            newBookmarks.set(result.name, result);
-                            await setBookmarks(newBookmarks);
-                            console.log('added');
+                <Col span={22}>
+                    <a href={result.link} className='result-card-name'>
+                        {result.name}
+                    </a>
+                </Col>
+                <Col>
+                    <Button
+                        type='text'
+                        icon={
+                            bookmarks.has(result.name) ? (
+                                <BookFilled />
+                            ) : (
+                                <BookOutlined />
+                            )
                         }
-                    }}
-                />
-                <Button
-                    type='text'
-                    className='collapse-button'
-                    onClick={() => setIsOpen(!isOpen)}
-                    icon={isOpen ? <CaretUpFilled /> : <CaretDownFilled />}
-                />
+                        className='bookmark'
+                        onClick={async () => {
+                            if (bookmarks.has(result.name)) {
+                                let newBookmarks = new Map(bookmarks);
+                                newBookmarks.delete(result.name);
+                                await setBookmarks(newBookmarks);
+                            } else {
+                                let newBookmarks = new Map(bookmarks);
+                                newBookmarks.set(result.name, result);
+                                await setBookmarks(newBookmarks);
+                            }
+                        }}
+                    />
+                    <Button
+                        type='text'
+                        className='collapse-button'
+                        onClick={() => setIsOpen(!isOpen)}
+                        icon={isOpen ? <CaretUpFilled /> : <CaretDownFilled />}
+                    />
+                </Col>
             </Row>
             <Row>
                 <Col span={15}>
                     <p className='result-card-description-open'>
-                        {result.description}
+                        {result.shortDescription}
                     </p>
                     <p className='result-card-disclaimer'>
                         {result.disclaimer}
@@ -162,46 +165,53 @@ export default function SearchResultCard({ result, bookmarks, setBookmarks }) {
     ) : (
         <Card className='result-card' key={result.id}>
             <Row>
-                <a href={result.link} className='result-card-name'>
-                    {result.name}
-                </a>
-                <Button
-                    type='text'
-                    icon={
-                        bookmarks.has(result.name) ? (
-                            <BookFilled />
-                        ) : (
-                            <BookOutlined />
-                        )
-                    }
-                    className='bookmark'
-                    onClick={async () => {
-                        console.log(bookmarks);
-                        if (bookmarks.has(result.name)) {
-                            let newBookmarks = new Map(bookmarks);
-                            newBookmarks.delete(result.name);
-                            await setBookmarks(newBookmarks);
-                            console.log('deleted');
-                        } else {
-                            let newBookmarks = new Map(bookmarks);
-                            newBookmarks.set(result.name, result);
-                            await setBookmarks(newBookmarks);
-                            console.log('added');
+                <Col span={22}>
+                    <a href={result.link} className='result-card-name'>
+                        {result.name}
+                    </a>
+                </Col>
+                <Col>
+                    <Button
+                        type='text'
+                        icon={
+                            bookmarks.has(result.name) ? (
+                                <BookFilled />
+                            ) : (
+                                <BookOutlined />
+                            )
                         }
-                    }}
-                />
-                <Button
-                    type='text'
-                    className='collapse-button'
-                    onClick={() => setIsOpen(!isOpen)}
-                    icon={isOpen ? <CaretUpFilled /> : <CaretDownFilled />}
-                />
+                        className='bookmark'
+                        onClick={async () => {
+                            if (bookmarks.has(result.name)) {
+                                let newBookmarks = new Map(bookmarks);
+                                newBookmarks.delete(result.name);
+                                await setBookmarks(newBookmarks);
+                            } else {
+                                let newBookmarks = new Map(bookmarks);
+                                newBookmarks.set(result.name, result);
+                                await setBookmarks(newBookmarks);
+                            }
+                        }}
+                    />
+                    <Button
+                        type='text'
+                        className='collapse-button'
+                        onClick={() => setIsOpen(!isOpen)}
+                        icon={isOpen ? <CaretUpFilled /> : <CaretDownFilled />}
+                    />
+                </Col>
             </Row>
             <p className='result-card-description-closed'>
-                {result.description}
+                {result.shortDescription}
             </p>
             {result.keywords.map(keyword => {
-                return <Tag key={keyword.title} keyword={keyword} />;
+                if (
+                    keyword.type === 'environmentalTopicArea' ||
+                    keyword.type === 'platform' ||
+                    keyword.type === 'scientificApplicationType'
+                ) {
+                    return <Tag key={keyword.title} keyword={keyword} />;
+                }
             })}
         </Card>
     );
