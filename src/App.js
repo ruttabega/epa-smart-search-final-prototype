@@ -5,6 +5,7 @@ import Demo from './pages/Demo';
 import Scenario1 from './pages/Scenario1';
 import Scenario2 from './pages/Scenario2';
 import Survey from './pages/Survey';
+import Prototype from './pages/Prototype';
 import './App.css';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             </head> */}
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Landing />} />
+                    <Route path='/' element={<Prototype />} />
                     <Route path='demo' element={<Demo />} />
                     <Route path='scenario-1' element={<Scenario1 />} />
                     <Route path='scenario-2' element={<Scenario2 />} />

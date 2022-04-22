@@ -470,161 +470,13 @@ export default function SmartSearch() {
                     }
                 }
             }
+            if (
+                entry.name.toLowerCase().includes(searchValue) ||
+                entry.shortDescription.toLowerCase().includes(searchValue)
+            ) {
+                match = true;
+            }
 
-            // Selected Match Option
-            if (selectedMatchOption === 'Match all terms') {
-                // Search fields
-                if (searchFields.name) {
-                    if (
-                        entry.name.toLowerCase() === searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.acronym) {
-                    if (
-                        entry.acronym.toLowerCase() ===
-                        searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.shortDescription) {
-                    if (
-                        entry.shortDescription.toLowerCase() ===
-                        searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.longDescription) {
-                    if (
-                        entry.longDescription.toLowerCase() ===
-                        searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.keywords) {
-                    for (let keyword of entry.keywords) {
-                        if (
-                            keyword.title.toLowerCase() ===
-                            searchValue.toLowerCase()
-                        ) {
-                            match = true;
-                        }
-                    }
-                }
-                if (
-                    !searchFields.name &&
-                    !searchFields.acronym &&
-                    !searchFields.shortDescription &&
-                    !searchFields.longDescription &&
-                    !searchFields.keywords
-                ) {
-                    if (
-                        entry.name.toLowerCase() === searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                    if (
-                        entry.acronym.toLowerCase() ===
-                        searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                    if (
-                        entry.shortDescription.toLowerCase() ===
-                        searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                    if (
-                        entry.longDescription.toLowerCase() ===
-                        searchValue.toLowerCase()
-                    ) {
-                        match = true;
-                    }
-                    for (let keyword of entry.keywords) {
-                        if (
-                            keyword.title.toLowerCase() ===
-                            searchValue.toLowerCase()
-                        ) {
-                            match = true;
-                        }
-                    }
-                }
-            }
-            if (selectedMatchOption === 'Match any terms') {
-                if (
-                    entry.name.toLowerCase().includes(searchValue.toLowerCase())
-                ) {
-                    match = true;
-                }
-                // Search fields
-                if (searchFields.name) {
-                    if (
-                        entry.name
-                            .toLowerCase()
-                            .includes(searchValue.toLowerCase())
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.acronym) {
-                    if (
-                        entry.acronym
-                            .toLowerCase()
-                            .includes(searchValue.toLowerCase())
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.shortDescription) {
-                    if (
-                        entry.shortDescription
-                            .toLowerCase()
-                            .includes(searchValue.toLowerCase())
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.longDescription) {
-                    if (
-                        entry.longDescription
-                            .toLowerCase()
-                            .includes(searchValue.toLowerCase())
-                    ) {
-                        match = true;
-                    }
-                }
-                if (searchFields.keywords) {
-                    for (let keyword of entry.keywords) {
-                        if (
-                            keyword.title
-                                .toLowerCase()
-                                .includes(searchValue.toLowerCase())
-                        ) {
-                            match = true;
-                        }
-                    }
-                }
-                if (
-                    !searchFields.name &&
-                    !searchFields.acronym &&
-                    !searchFields.shortDescription &&
-                    !searchFields.longDescription &&
-                    !searchFields.keywords
-                ) {
-                    if (
-                        entry.name
-                            .toLowerCase()
-                            .includes(searchValue.toLowerCase())
-                    ) {
-                        match = true;
-                    }
-                }
-            }
             if (match) {
                 searchResults.push(entry);
             }
@@ -639,8 +491,8 @@ export default function SmartSearch() {
                     advancedOptions={advancedOptions}
                     setAdvancedOptions={setAdvancedOptions}
                 />
-                <br />
                 <Bookmarks bookmarks={bookmarks} setBookmarks={setBookmarks} />
+                <br />
             </Col>
             <Col style={{ paddingLeft: '20px' }}>
                 <SearchMain

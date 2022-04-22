@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Card, Button, Row, Col, Table } from 'antd';
+import { Card, Button, Row, Col, Table, Tooltip } from 'antd';
 import {
     BookOutlined,
     BookFilled,
@@ -117,34 +117,40 @@ export default function SearchResultCard({ result, bookmarks, setBookmarks }) {
                     </a>
                 </Col>
                 <Col>
-                    <Button
-                        type='text'
-                        icon={
-                            bookmarks.has(result.name) ? (
-                                <BookFilled />
-                            ) : (
-                                <BookOutlined />
-                            )
-                        }
-                        className='bookmark'
-                        onClick={async () => {
-                            if (bookmarks.has(result.name)) {
-                                let newBookmarks = new Map(bookmarks);
-                                newBookmarks.delete(result.name);
-                                await setBookmarks(newBookmarks);
-                            } else {
-                                let newBookmarks = new Map(bookmarks);
-                                newBookmarks.set(result.name, result);
-                                await setBookmarks(newBookmarks);
+                    <Tooltip title='Bookmark this result'>
+                        <Button
+                            type='text'
+                            icon={
+                                bookmarks.has(result.name) ? (
+                                    <BookFilled />
+                                ) : (
+                                    <BookOutlined />
+                                )
                             }
-                        }}
-                    />
-                    <Button
-                        type='text'
-                        className='collapse-button'
-                        onClick={() => setIsOpen(!isOpen)}
-                        icon={isOpen ? <CaretUpFilled /> : <CaretDownFilled />}
-                    />
+                            className='bookmark'
+                            onClick={async () => {
+                                if (bookmarks.has(result.name)) {
+                                    let newBookmarks = new Map(bookmarks);
+                                    newBookmarks.delete(result.name);
+                                    await setBookmarks(newBookmarks);
+                                } else {
+                                    let newBookmarks = new Map(bookmarks);
+                                    newBookmarks.set(result.name, result);
+                                    await setBookmarks(newBookmarks);
+                                }
+                            }}
+                        />
+                    </Tooltip>
+                    <Tooltip title='Hide details'>
+                        <Button
+                            type='text'
+                            className='collapse-button'
+                            onClick={() => setIsOpen(!isOpen)}
+                            icon={
+                                isOpen ? <CaretUpFilled /> : <CaretDownFilled />
+                            }
+                        />
+                    </Tooltip>
                 </Col>
             </Row>
             <Row>
@@ -171,34 +177,40 @@ export default function SearchResultCard({ result, bookmarks, setBookmarks }) {
                     </a>
                 </Col>
                 <Col>
-                    <Button
-                        type='text'
-                        icon={
-                            bookmarks.has(result.name) ? (
-                                <BookFilled />
-                            ) : (
-                                <BookOutlined />
-                            )
-                        }
-                        className='bookmark'
-                        onClick={async () => {
-                            if (bookmarks.has(result.name)) {
-                                let newBookmarks = new Map(bookmarks);
-                                newBookmarks.delete(result.name);
-                                await setBookmarks(newBookmarks);
-                            } else {
-                                let newBookmarks = new Map(bookmarks);
-                                newBookmarks.set(result.name, result);
-                                await setBookmarks(newBookmarks);
+                    <Tooltip title='Bookmark this result'>
+                        <Button
+                            type='text'
+                            icon={
+                                bookmarks.has(result.name) ? (
+                                    <BookFilled />
+                                ) : (
+                                    <BookOutlined />
+                                )
                             }
-                        }}
-                    />
-                    <Button
-                        type='text'
-                        className='collapse-button'
-                        onClick={() => setIsOpen(!isOpen)}
-                        icon={isOpen ? <CaretUpFilled /> : <CaretDownFilled />}
-                    />
+                            className='bookmark'
+                            onClick={async () => {
+                                if (bookmarks.has(result.name)) {
+                                    let newBookmarks = new Map(bookmarks);
+                                    newBookmarks.delete(result.name);
+                                    await setBookmarks(newBookmarks);
+                                } else {
+                                    let newBookmarks = new Map(bookmarks);
+                                    newBookmarks.set(result.name, result);
+                                    await setBookmarks(newBookmarks);
+                                }
+                            }}
+                        />
+                    </Tooltip>
+                    <Tooltip title='Show details'>
+                        <Button
+                            type='text'
+                            className='collapse-button'
+                            onClick={() => setIsOpen(!isOpen)}
+                            icon={
+                                isOpen ? <CaretUpFilled /> : <CaretDownFilled />
+                            }
+                        />
+                    </Tooltip>
                 </Col>
             </Row>
             <p className='result-card-description-closed'>

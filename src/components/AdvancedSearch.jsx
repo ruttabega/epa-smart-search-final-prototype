@@ -1,10 +1,11 @@
-import { Card, Select, Checkbox, Button } from 'antd';
-import { CaretRightOutlined, CaretLeftOutlined } from '@ant-design/icons';
+import { Card, Select, Checkbox, Button, Collapse } from 'antd';
+import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 export default function AdvancedSearch({
     advancedOptions,
     setAdvancedOptions
 }) {
+    const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         console.log(advancedOptions);
     }, [advancedOptions]);
@@ -71,20 +72,24 @@ export default function AdvancedSearch({
 
     const CollapseCardButton = () => {
         return (
-            <Button>
-                <CaretRightOutlined />
-            </Button>
+            <Button
+                className='collapse-advanced'
+                type='text'
+                icon={isOpen ? <CaretUpOutlined /> : <CaretDownOutlined />}
+                onClick={() => setIsOpen(!isOpen)}
+            />
         );
     };
+    console.log(isOpen);
     return (
-        <Card className='advanced-card' title='Advanced Search Options'>
+        <Card className='advanced-card' s title='Advanced Search Options'>
             <div className='advanced-section'>
                 <div className='advanced-section-header'>
                     Environmental Topic Areas
                 </div>
                 <div className='advanced-section-content'>
                     <Select
-                        style={{ width: '215px' }}
+                        style={{ width: '188px' }}
                         onChange={e => onEnvironmentalTopicAreasChange(e)}
                         mode='multiple'
                         showArrow
@@ -122,7 +127,7 @@ export default function AdvancedSearch({
                 </div>
                 <div className='advanced-section-content'>
                     <Select
-                        style={{ width: '215px' }}
+                        style={{ width: '188px' }}
                         onChange={e => onScientificApplicationTypeChange(e)}
                         mode='multiple'
                         showArrow

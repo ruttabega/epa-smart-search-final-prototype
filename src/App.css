@@ -1,7 +1,14 @@
 @import '~antd/dist/antd.css';
 
-html {
-    zoom: 90%;
+.page {
+    padding: 35px;
+}
+
+.page-title {
+    font-size: 25px !important;
+    font-weight: 700 !important;
+    margin-bottom: 40px !important;
+    margin-left: 5px !important;
 }
 
 .site-layout-content {
@@ -22,8 +29,9 @@ html {
 }
 
 .advanced-card {
-    width: 250px;
+    width: 220px;
     border-radius: 3px;
+    margin-bottom: 20px;
 }
 
 .advanced-card > .ant-card-head {
@@ -72,8 +80,8 @@ html {
 }
 
 .bookmark-collapse-button {
-    width: 250px;
-    height: 40px;
+    width: 220px;
+    height: 45px;
 }
 
 .bookmark-card > .ant-card-head {
@@ -121,7 +129,7 @@ html {
 }
 
 .search-input {
-    width: 1000px;
+    width: 1115px;
     border-radius: 3px;
     height: 45px;
 }
@@ -196,12 +204,12 @@ html {
     box-sizing: border-box;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
     border-radius: 3px;
-    width: 1200px;
+    width: 1195px;
     margin-top: 20px;
     padding: 15px;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 650px;
+    height: 630px;
 }
 
 .bookmark-results {
@@ -214,7 +222,7 @@ html {
     padding: 15px;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 650px;
+    height: 630px;
 }
 
 .no-results {
@@ -225,10 +233,10 @@ html {
     width: 1200px;
     margin-top: 20px;
     padding: 15px;
-    height: 50;
+    /* height: 50px; */
     font-weight: 600;
     font-size: 12px;
-    margin-bottom: 600px;
+    margin-bottom: 500px;
 }
 
 .result-card {
